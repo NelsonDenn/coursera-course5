@@ -9,16 +9,16 @@ LunchCheckController.$inject = ['$scope'];
 function LunchCheckController ($scope) {
   $scope.lunchList = "";
   $scope.message = "";
-  $scope.color = "";
+  $scope.lunchListClass = "";
 
   $scope.checkLunchList = function () {
     
     // Validate that data was entered
     if ($scope.lunchList == "") {
       $scope.message = "Please enter data first";
-      $scope.color = "red";
+      $scope.lunchListClass = "red";
     } else {
-      $scope.color = "green";
+      $scope.lunchListClass = "green";
       var lunchItems = $scope.lunchList.split(",");
       var lunchItemCount = 0;
       

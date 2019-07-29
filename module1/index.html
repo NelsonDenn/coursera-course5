@@ -6,6 +6,14 @@
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <style>
       .message { font-size: 1.3em; font-weight: bold; }
+      .green {
+        border-color: green;
+        color: green; 
+      }
+      .red {
+        border-color: red;
+        color: red; 
+      }
     </style>
   </head>
 <body ng-app="LunchCheck">
@@ -18,7 +26,7 @@
         placeholder="list comma separated dishes you usually have for lunch"
         class="form-control"
         ng-model="lunchList"
-        style="border-color: {{color}};"
+        ng-class="lunchListClass"
       >
       <p>(Empty values are ignored)</p>
     </div>
@@ -27,7 +35,7 @@
       <button class="btn btn-default" ng-click="checkLunchList();">Check If Too Much</button>
     </div>
     
-    <div class="form-group message" style="color: {{color}};">
+    <div class="form-group message" ng-class="lunchListClass">
       <!-- Your message can go here. -->
       {{message}}
     </div>
