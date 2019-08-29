@@ -1,0 +1,60 @@
+<div class="container">
+  <h2 id="my-info-title" class="text-center">My Info</h2>
+  <br>
+
+  <div ng-if="myInfoCtrl.user">
+    <div class="row">
+      <div class="col-xs-6 text-right">
+        First Name:
+      </div>
+      <div class="col-xs-6">
+          {{ myInfoCtrl.user.firstName }}
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-xs-6 text-right">
+          Last Name:
+      </div>
+      <div class="col-xs-6">
+          {{ myInfoCtrl.user.lastName }}
+      </div>
+    </div>
+    <br>
+    
+    <div class="row">
+      <div class="col-xs-6 text-right">
+          Email:
+      </div>
+      <div class="col-xs-6">
+          {{ myInfoCtrl.user.email }}
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-xs-6 text-right">
+          Phone:
+      </div>
+      <div class="col-xs-6">
+          {{ myInfoCtrl.user.phone }}
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-xs-6 text-right">
+          Favorite Dish:
+      </div>
+      <div class="col-xs-6">
+        <menu-item menu-item="myInfoCtrl.favoriteDish"></menu-item>
+      </div>
+    </div>
+  </div>
+
+  <div ng-if="!myInfoCtrl.user">
+    Not signed up yet. <a ui-sref="public.signup">Sign up now!</a>
+  </div>
+
+</div>

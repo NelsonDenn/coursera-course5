@@ -1,0 +1,71 @@
+<div class="container">
+  <h2 id="sign-up-title" class="text-center">Sign Up</h2>
+  <br>
+  
+  <form id="signUpForm" name="signUpForm">
+    <div class="row">
+      <div class="col-xs-6 text-right">
+        First Name:
+      </div>
+      <div class="col-xs-6">
+        <input type="text" name="firstName" ng-model="signUpCtrl.user.firstName" minlength="1" required>
+        <span ng-if="(signUpForm.firstName.$error.minlength || signUpForm.firstName.$error.required) && signUpForm.firstName.$touched">First name is required</span>
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-xs-6 text-right">
+          Last Name:
+      </div>
+      <div class="col-xs-6">
+        <input type="text" name="lastName" ng-model="signUpCtrl.user.lastName" minlength="1" required>
+        <span ng-if="(signUpForm.lastName.$error.minlength || signUpForm.lastName.$error.required) && signUpForm.lastName.$touched">Last name is required</span>
+      </div>
+    </div>
+    <br>
+    
+    <div class="row">
+      <div class="col-xs-6 text-right">
+          Email:
+      </div>
+      <div class="col-xs-6">
+        <input type="email" name="email" ng-model="signUpCtrl.user.email" required>
+        <span ng-if="signUpForm.email.$invalid && signUpForm.email.$touched">Must be a valid email</span>
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-xs-6 text-right">
+          Phone:
+      </div>
+      <div class="col-xs-6">
+        <input type="text" name="phone" placeholder="Phone ###-###-####" ng-model="signUpCtrl.user.phone" pattern="(\d{3})-?(\d{3})-?(\d{4})" required>
+        <span ng-if="signUpForm.phone.$invalid && signUpForm.phone.$touched">Invalid phone number</span>
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-xs-6 text-right">
+          Favorite Dish:
+      </div>
+      <div class="col-xs-6">
+        <input type="text" name="favoriteDish" placeholder="A1" ng-model="signUpCtrl.user.favoriteDish" pattern="[a-zA-Z]\d" required>
+        <span ng-if="signUpForm.favoriteDish.$invalid && signUpForm.favoriteDish.$touched">Favorite dish is required</span>
+        <span ng-if="signUpForm.favoriteDish.$valid && !signUpCtrl.menuItemExists()">No such menu number exists</span>
+      </div>
+    </div>
+    <br>
+
+    <div class="row text-center">
+      <button ng-click="signUpCtrl.submit();" ng-disabled="signUpForm.$invalid || signUpCtrl.success">Sign Up</button>
+    </div>
+    <br>
+
+    <div class="row text-center" ng-show="signUpCtrl.success">
+      Your information has been saved
+    </div>
+  </form>
+</div>
